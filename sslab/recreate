@@ -1,0 +1,6 @@
+cat>f1<<here
+abcdefghi
+here
+cat>f2<<here
+abcdefghi
+here

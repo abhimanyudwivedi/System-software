@@ -1,0 +1,20 @@
+%{
+	#include<stdio.h>
+	int c=0;
+%}
+%%
+[/][*][^"*/"][*][/] {c++;}
+[/][/][a-z A-Z]*[^\n] {c++;}
+[a-z A-Z] {fprintf(yyout,"%s",yytext);}
+%%
+int main(int argc,char *argv[])
+{
+	if(argc>=3)
+	{
+		yyin = fopen(argv[1],"r");
+		yyout = fopen(argv[2],"w");
+		yylex();
+		printf("\nnumber of comment lines = %d",c);
+	}
+	return 0;
+}

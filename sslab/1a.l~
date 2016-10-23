@@ -1,0 +1,22 @@
+%{
+	int b=0,w=0,l=0,c=0;
+%}
+%%
+[\t] {w++;b++;}
+[\n] {w++;l++;}
+[" "] {w++;b++;}
+[^" "\t\n] {c+=yyleng;}
+%%
+int main(int argc,char *argv[])
+{
+	if(argc==2)
+	{
+		yyin=fopen("abhi.txt","r");
+		yylex();
+		printf("\nthe number of blank spaces= %d,lines= %d, character= %d, words= %d",b,l,c,w);
+	}
+	else
+	{
+		printf("\ninappropriate number of arguments");
+	}
+}
