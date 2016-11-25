@@ -1,0 +1,22 @@
+%{
+#include<stdio.h>
+#include<stdlib.h>
+%}
+%token A B
+%%
+S:A S1 B S2;
+S1:A S1|;
+S2:B S2|;
+%%
+int main()
+{
+	printf("\nenter the string\n");
+	yyparse();
+	printf("\nthe stringis valid\n");
+	return 1;
+}
+int yyerror()
+{
+	printf("\nthe string is invalid\n");
+	exit(0);
+}

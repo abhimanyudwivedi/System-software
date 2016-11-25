@@ -8,7 +8,7 @@
 "int"|"float"|"double"|"char" {ch = input();
 								if(ch==',')
 									count++;
-								else
+								else if(ch=';')
 								{
 									count++;
 									break;
