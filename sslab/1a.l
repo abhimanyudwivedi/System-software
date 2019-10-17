@@ -2,8 +2,8 @@
 	int b=0,w=0,l=0,c=0;
 %}
 %%
-[\t] {w++;b++;}
-[\n] {w++;l++;}
+[\t] {w++;b++;} #It is to find the number of tabs
+[\n] {w++;l++;} 
 [" "] {w++;b++;}
 [^" "\t\n] {c+=yyleng;}
 %%
@@ -13,10 +13,10 @@ int main(int argc,char *argv[])
 	{
 		yyin=fopen(argv[1],"r");
 		yylex();
-		printf("\nthe number of blank spaces= %d,lines= %d, character= %d, words= %d",b,l,c,w);
+		printf("\nThe number of blank spaces= %d,lines= %d, character= %d, words= %d",b,l,c,w);
 	}
 	else
 	{
-		printf("\ninappropriate number of arguments");
+		printf("\nInappropriate number of arguments");
 	}
 }
